@@ -1,0 +1,13 @@
+Structure:
+1. First, address what launcher to use. The default assumption will be Prism Launcher, but we will show support for ATLauncher, Modrinth, CurseForge, etc. We will recommend Prism. We should have a breakdown of how useful each launcher is. Fill out the template; the actual content will be left to me. That will go for most sections until I specify otherwise.
+2. Second, we have to address Minecraft version. This isn't cut and dry, since different versions support different mods, so we'll want to offer examples of specific mods that are found on specific versions.
+3. Modloader. The ones we will focus on will be Forge, Fabric, NeoForge, Quilt, and Cleanroom, but ideally we'll have a section for each modloader. We will have to analyze when it is worthwhile to use any specific modloader, such as mods exclusive to one modloader, exceptional performance, usability, and so on.
+4. Mods and compatibility. At the same time we'll address where to get mods. Ideally, we could have a massive index of mod incompatibility, such as a utility which allows for a search by mod to then see all known incompatibilities and issues, as well as known crashes for each mod and why, such as Java version or some setting somewhere. We'll also mention some major modpacks. A major goal of this section (which will be the largest section by far) is to address which mods are deprecated, obsolete, or straight up broken or useless. For this, we will need to scrape a full list of mods from CurseForge and Modrinth. We may omit mods below some amount of downloads to omit some trash.
+5. Resource packs and shaders. Which ones work where, and how well. We will attempt to rank/quantify the load of each shaderpack as well as the aesthetic appeal of the shaderpack. Resource packs we'll just mention how they work and how they affect modding.
+6. Modded servers and all methods of multiplayer. Eventually, we'll cover how to setup a modded server. That's at the end of the priority list.
+
+
+
+
+Content:
+Minecraft modding isn't particularly complicated, but as far as I can tell, there is no unified guide for how to do it. This is an attempt to fix that.

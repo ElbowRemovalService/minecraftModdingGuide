@@ -1,0 +1,420 @@
+/* ==========================================================================
+   Minecraft Mods User Guide - stylesheet
+   Sections: 1. Colors  2. Base  3. Header  4. Layout  5. Text
+             6. Notes and tables  7. Home page  8. Mod index  9. Footer  10. Mobile
+   ========================================================================== */
+
+
+/* 1. Colors
+   Dark is the default. Light mode applies when <html> has data-theme="light"
+   (set by the toggle button in js/theme.js). Edit the palettes here.
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --bg:      #161a18;  /* page background */
+  --panel:   #1e2421;  /* header, notes, tables */
+  --ink:     #e6eae3;  /* main text */
+  --mute:    #9aa59d;  /* secondary text */
+  --line:    #38413b;  /* borders */
+  --grass:   #7bc15f;  /* main accent */
+  --dirt:    #b88257;  /* warning accent */
+  --link:    #7fc0ea;  /* links */
+  --code:    #262e2a;  /* code background */
+  --bad:     #e07a6f;  /* broken / error accent */
+
+  /* Inventory-slot tiles and buttons */
+  --slot:    #2a322e;
+  --slot-hi: #414c45;  /* light bevel edge */
+  --slot-lo: #0f1311;  /* dark bevel edge */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg:      #eceee8;
+  --panel:   #f8f9f5;
+  --ink:     #1c2320;
+  --mute:    #5b655f;
+  --line:    #b9c0b5;
+  --grass:   #4a8a35;
+  --dirt:    #7b5334;
+  --link:    #1f6591;
+  --code:    #e1e5dc;
+  --bad:     #b3412f;
+  --slot:    #d3d8cc;
+  --slot-hi: #fbfcf8;
+  --slot-lo: #8f988b;
+}
+
+
+/* 2. Base
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 4rem;  /* keeps anchor links clear of the sticky header */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1.0625rem/1.65 "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+a {
+  color: var(--link);
+}
+
+:focus-visible {
+  outline: 3px solid var(--grass);
+  outline-offset: 2px;
+}
+
+
+/* 3. Header
+   -------------------------------------------------------------------------- */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--panel);
+  border-bottom: 4px solid var(--grass);
+}
+
+.brand {
+  font: 700 1rem "Silkscreen", "Courier New", monospace;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+header.top nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+}
+
+header.top nav a {
+  color: var(--mute);
+  text-decoration: none;
+}
+
+/* Current page and hover */
+header.top nav a[aria-current],
+header.top nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--grass);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+/* Theme toggle button, pushed to the right end of the header */
+.theme-toggle {
+  margin-left: auto;
+  padding: 0.3rem 0.8rem;
+  background: var(--slot);
+  border: 3px solid;
+  border-color: var(--slot-hi) var(--slot-lo) var(--slot-lo) var(--slot-hi);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--grass);
+}
+
+
+/* 4. Layout: sidebar on the left, content on the right
+   -------------------------------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+aside.side {
+  padding: 1.5rem 1.25rem;
+  border-right: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+aside.side h2 {
+  margin: 1.2rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+aside.side ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+aside.side a {
+  display: block;
+  padding: 0.2rem 0;
+  color: var(--mute);
+  text-decoration: none;
+}
+
+aside.side a[aria-current] {
+  margin-left: -0.85rem;
+  padding-left: 0.6rem;
+  border-left: 4px solid var(--grass);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+main {
+  max-width: 46rem;
+  padding: 2rem 1.75rem 4rem;
+}
+
+
+/* 5. Text
+   -------------------------------------------------------------------------- */
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 2.2rem 0 0.5rem;
+  font-size: 1.45rem;
+}
+
+h3 {
+  margin: 1.6rem 0 0.3rem;
+  font-size: 1.15rem;
+}
+
+.lede {
+  color: var(--mute);
+  font-size: 1.2rem;
+}
+
+code,
+pre {
+  background: var(--code);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border-left: 4px solid var(--dirt);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+
+/* 6. Notes and tables
+   -------------------------------------------------------------------------- */
+.note {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border-left: 4px solid var(--grass);
+}
+
+/* Add class "warn" for to-do and verify notices */
+.warn {
+  border-left-color: var(--dirt);
+}
+
+/* Wrapper that lets wide tables scroll sideways on small screens */
+.tablewrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+
+th,
+td {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--slot);
+}
+
+
+/* 7. Home page
+   -------------------------------------------------------------------------- */
+.hero {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+}
+
+.sect {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* The grid of topic tiles, styled like Minecraft inventory slots */
+.inv {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inv a {
+  display: block;
+  height: 100%;
+  padding: 0.9rem;
+  background: var(--slot);
+  border: 3px solid;
+  border-color: var(--slot-hi) var(--slot-lo) var(--slot-lo) var(--slot-hi);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.inv a:hover {
+  border-color: var(--grass);
+}
+
+.inv strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.inv span {
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+
+/* 8. Mod index (compatibility search page)
+   -------------------------------------------------------------------------- */
+.finder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.finder label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.finder input,
+.finder select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font: inherit;
+}
+
+.finder .wide {
+  grid-column: 1 / -1;
+}
+
+.results {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  margin-bottom: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.card h3 {
+  margin: 0 0 0.25rem;
+}
+
+.card p,
+.card ul {
+  margin: 0.3rem 0;
+}
+
+.meta {
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid currentColor;
+  font-size: 0.8rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.badge-active     { color: var(--grass); }
+.badge-deprecated { color: var(--dirt); }
+.badge-obsolete   { color: var(--mute); }
+.badge-broken     { color: var(--bad); }
+
+/* 9. Footer
+   -------------------------------------------------------------------------- */
+footer {
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* 10. Mobile: stack the sidebar above the content on narrow screens
+   -------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  aside.side {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  header.top {
+    position: static;
+  }
+}

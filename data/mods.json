@@ -1,0 +1,40 @@
+{
+  "mods": [
+    {
+      "name": "Example Mod (active)",
+      "loaders": ["Fabric"],
+      "versions": ["1.21.x"],
+      "downloads": 0,
+      "status": "active",
+      "statusReason": "",
+      "incompatibilities": [
+        { "mod": "Example Mod B", "issue": "Describe the conflict here." }
+      ],
+      "crashes": [
+        { "cause": "Describe what triggers the crash.", "fix": "Describe the fix." }
+      ]
+    },
+    {
+      "name": "Example Mod (deprecated)",
+      "loaders": ["Forge"],
+      "versions": ["1.12.x"],
+      "downloads": 0,
+      "status": "deprecated",
+      "statusReason": "Describe why it is deprecated and what replaces it.",
+      "incompatibilities": [],
+      "crashes": []
+    },
+    {
+      "name": "Example Mod (broken)",
+      "loaders": ["NeoForge"],
+      "versions": ["1.20.x"],
+      "downloads": 0,
+      "status": "broken",
+      "statusReason": "Describe what is broken.",
+      "incompatibilities": [],
+      "crashes": [
+        { "cause": "Describe the crash cause, such as a Java version.", "fix": "Describe the fix." }
+      ]
+    }
+  ]
+}
